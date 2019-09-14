@@ -34,7 +34,6 @@ int main(int argc , char **argv)
     cin>>input;
     if(input == 1){
       cout<<a.getNumChar()<<endl;
-      usleep(1000000);
     }
     else if(input == 2){
       cout<<a.getMean(a.getNumChar(),a.getNumLines())<<endl;
@@ -43,105 +42,35 @@ int main(int argc , char **argv)
     }
     else if(input == 3){
       cout<<a.getVariance(a.getMean(a.getNumChar(),a.getNumLines()),a.getNumLines())<<endl;
+      out<<a.getVariance(a.getMean(a.getNumChar(),a.getNumLines()),a.getNumLines());
     }
     else if(input == 4){
       cout<<a.getStanDeviation(a.getVariance(a.getMean(a.getNumChar(),a.getNumLines()),a.getNumLines()))<<endl;
+      cout<<a.getStanDeviation(a.getVariance(a.getMean(a.getNumChar(),a.getNumLines()),a.getNumLines()));
+
     }
     else if(input == 5){
       cout<<a.getTypeAProbability(a.getTotal())<<endl;
       cout<<a.getTypeTProbability(a.getTotal())<<endl;
       cout<<a.getTypeCProbability(a.getTotal())<<endl;
       cout<<a.getTypeGProbability(a.getTotal())<<endl;
+      out<<a.getTypeAProbability(a.getTotal());
+      out<<a.getTypeTProbability(a.getTotal());
+      out<<a.getTypeCProbability(a.getTotal());
+      out<<a.getTypeGProbability(a.getTotal());
     }
     else if(input == 6){
       cout<<a.getBigramProbability()<<endl;
+      out<<a.getBigramProbability();
+
     }
     else if(input == 7){
       cout<<a.getGaussianDistribution()<<endl;
+      out<<a.getGaussianDistribution();
+
     }
     else if(input == 8){
       std::exit(0);
     }
   }
-
-
-  // std::string fileName = "hew.txt";
-	// ofstream out;
-	// out.open("GabbyPinto.out");
-  //
-	// //	std::string name = fileName;
-	// 	std::ifstream infile(fileName.c_str());
-	// 	string sequence="";
-	// 	if(infile.fail()){
-	// 		cout << "Your file didn't work" << endl;
-	// 	}
-
-		//reading each line from the file
-		// else{
-		// 	string line;
-    //   //writing to file
-		// 	while(infile>>line){
-		// 		sequence+=line+" ";
-    //     //cout<<line;
-    //     //out<<line;
-		// 	}
-		// }
-
-    //correct
-      // cout<<"Mean: "<<a.getMean(a.getNumChar(),a.getNumLines()) << "\n" << endl;
-      // cout<<"Variance: "<<a.getVariance(a.getMean(a.getNumChar(), a.getNumLines()), a.getNumLines()) << "\n" << endl;
-      // cout<<"Standard Deviation: "<< a.getStanDeviation(a.getVariance(a.getMean(a.getNumChar(), a.getNumLines()), a.getNumLines()))<< "\n"<<endl;
-       // cout<<"print from prob: "<<a.getTypeAProbability(a.getTotal())<<endl;
-       // cout<<"print from prob: "<<a.getTypeTProbability(a.getTotal())<<endl;
-       // cout<<"print from prob: "<<a.getTypeGProbability(a.getTotal())<<endl;
-       // cout<<"print from prob: "<<a.getTypeCProbability(a.getTotal())<<endl;
-
-
-
-      // cout<<"\n"<<a.getBigramProbability()<<"\n"<<endl;
-      //  cout<<"\n"<<a.getGaussianDistribution()<<"\n"<<endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if(arg>1){
-//
-//   ifstream hewwo("hew.txt");
-//     if(!hewwo){
-//         cout<< "cannot open input file.\n";
-//         return 1;
-//     }
-//
-//     char str[255]; //what does this mean?
-//     while(hewwo){
-//         hewwo.getline(str, 255);
-//         if(hewwo) cout<<str<<endl;
-//     }
-//     hewwo.close();
-//
-//     cout<<"sum of lines is: "<< p.addLines(hewwo) <endl;
-//     return 0;
-//     }
-//
-// else{
-//   return 1;
-// }

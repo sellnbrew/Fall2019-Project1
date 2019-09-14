@@ -84,8 +84,6 @@ class Calcs{
         float counterC = 0;
         float total;
 
-        //input the choice of nucleotide probabilit by the user
-        //include all type of nucleotides
         ifstream fileName(actualFileName);
         while(fileName){
             getline(fileName,line);
@@ -110,10 +108,6 @@ class Calcs{
               }
         }
         total = counterA + counterC + counterG + counterT;
-
-
-        //set the entire list to a string
-
         return total;
         // , probC, probG, probT;
     }
@@ -230,9 +224,7 @@ float getTypeCProbability(int total){
 
 
     string getBigramProbability(){
-
-        //captalize
-        //remove space and other chars
+      //counters for each pair
         string dnaSeq;
         string bigram;
         string test;
@@ -262,12 +254,13 @@ float getTypeCProbability(int total){
             dnaSeq+=line;
         }
         for(int i = 0;i<dnaSeq.length()-1; i++){
-          //bigram += dnaSeq.substr(i, i+1);
+          //gets bigram by indexing (makes them)
           bigram = bigram + dnaSeq[i] + dnaSeq[i+1];
         }
         cout<<bigram<<"\n"<<endl;
 
         for(int i=0;i<bigram.length()-1;i++){
+          //gets pairs of bigrams
           test =  test + bigram[i]+bigram[i+1];
           cout<<test<<endl;
           if(test == "AA"){
@@ -337,6 +330,7 @@ float getTypeCProbability(int total){
           test = "";
           i++;
         }
+        //prints all pairs at once
         std::string probability =
         "prob pair AA: " + std::to_string(pairAA/totalPair)+"\n"
         "prob pair CA: " + std::to_string(pairCA/totalPair)+"\n"
@@ -358,6 +352,7 @@ float getTypeCProbability(int total){
       }
 
     string getGaussianDistribution(){
+      //generates 1000 lines of DNA
       int total = getTotal();
       float variance = getVariance(mean,countLines);
       float probA = getTypeAProbability(total);
@@ -367,12 +362,9 @@ float getTypeCProbability(int total){
       float meanNum = getMean(numChar, lines);
       float standDev = getStanDeviation(variance);
       string randDNA="";
-
       int count=0;
       float randomNum = rand();
       float randomNum2 = rand();
-
-
         while(count<1000){
           float randomNum = rand();
           float randomNum2 = rand();
@@ -406,16 +398,10 @@ float getTypeCProbability(int total){
         }
         return randDNA;
   }
-
-
 };
-
-
+//default constuctor
 Calcs::Calcs(){
 }
-
-
-
 Calcs::~Calcs(){
-  std::cout<<"detroyed...bam"<<endl;
+  std::cout<<"Closing"<<endl;
 }
